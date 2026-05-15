@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSS.GG — Profil Invocateur</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&family=Exo+2:wght@400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body class="profile-page">
+
+    <div class="bg-fx">
+        <div class="hex-grid"></div>
+    </div>
+
+    <header class="site-header">
+        <div class="logo" onclick="window.location.href='/'">
+            <span class="logo-icon">◈</span>
+            <span class="logo-text">PSS<span class="logo-gg">.GG</span></span>
+        </div>
+        <nav class="header-nav">
+            <span class="nav-item active"><a href="index.html">STATS</a></span>
+            <span class="nav-item"><a href="leaderboard.html">RANKING LP</a></span>
+            <span class="nav-item"><a href="leaderboard-bp.html">RANKING BP</a></span>
+        </nav>
+        <div class="top-search-bar">
+            <div class="search-box small" id="top-search-box">
+                <input type="text" id="top-search-input" placeholder="Pseudo#TAG" autocomplete="off" />
+            </div>
+        </div>
+    </header>
+
+    <div id="loading-overlay" class="loading-overlay hidden">
+        <div class="loader-ring"></div>
+        <div class="loader-text">RÉCUPÉRATION DES DONNÉES...</div>
+    </div>
+
+    <main id="profile-page-content" class="profile-container">
+        
+        <section class="summoner-card">
+            <div class="summoner-avatar-wrap">
+                <img id="summoner-icon" src="" alt="" class="summoner-icon" />
+                <span class="summoner-level" id="summoner-level">—</span>
+            </div>
+            <div class="summoner-info">
+                <div class="name-row">
+                    <h2 class="summoner-name" id="summoner-name">Chargement...</h2>
+                    <span class="summoner-tag" id="summoner-tag">#—</span>
+                </div>
+                <div class="summoner-region-badge" id="summoner-region">—</div>
+            </div>
+            <div class="summoner-ranks" id="summoner-ranks"></div>
+        </section>
+
+        <section class="history-section">
+            <div class="section-header">
+                <span class="section-title">HISTORIQUE RÉCENT</span>
+            </div>
+            <div class="match-list" id="match-list">
+                </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

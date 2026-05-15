@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PSS.GG</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="index.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@300;400;500;600&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- BACKGROUND FX -->
+  <div class="bg-fx">
+    <div class="hex-grid"></div>
+    <div class="glow-orb orb1"></div>
+    <div class="glow-orb orb2"></div>
+    <div class="glow-orb orb3"></div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="logo" onclick="goHome()">
+      <span class="logo-icon">◈</span>
+      <span class="logo-text">PSS<span class="logo-gg">.GG</span></span>
+    </div>
+    <nav class="header-nav">
+      <span class="nav-item active">STATS</span>
+      <span class="nav-item"><a href="leaderboard.html">RANKING LP</a></span>
+      
+      <span class="nav-item"><a href="leaderboard-bp.html">RANKING BP</a></span>
+    </nav>
+  </header>
+
+  <!-- LANDING / SEARCH PAGE -->
+  <main id="landing-page" class="page active">
+    <div class="landing-center">
+      <div class="landing-title-wrap">
+        <h1 class="landing-title">ANALYZE YOUR <br><span class="gradient-text">RANKED PERFORMANCE</span></h1>
+        <p class="landing-sub">Stats avancées • Historique complet • Analyse LP</p>
+      </div>
+      <div class="search-wrap">
+        <div class="search-box" id="main-search-box">
+          <div class="search-icon">⟨◈⟩</div>
+          <input type="text" id="main-search-input" placeholder="Pseudo#TAG (ex: Faker#KR1)" autocomplete="off" />
+        </div>
+        <div class="search-error" id="main-search-error"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- PROFILE PAGE -->
+  <main id="profile-page" class="page">
+
+    <!-- TOP BAR SEARCH -->
+    <div class="top-search-bar">
+      <div class="search-box small" id="top-search-box">
+        <div class="search-icon small">⟨◈⟩</div>
+        <input type="text" id="top-search-input" placeholder="Pseudo#TAG" autocomplete="off" />
+        <select id="top-region-select" class="region-select small">
+          <option value="euw1">EUW</option>
+          <option value="eun1">EUNE</option>
+          <option value="na1">NA</option>
+          <option value="kr">KR</option>
+          <option value="br1">BR</option>
+          <option value="la1">LAN</option>
+          <option value="la2">LAS</option>
+          <option value="oc1">OCE</option>
+          <option value="tr1">TR</option>
+          <option value="ru">RU</option>
+        </select>
+        <button class="search-btn small" id="top-search-btn">GO</button>
+      </div>
+    </div>
+
+    <!-- LOADING -->
+    <div id="loading-overlay" class="loading-overlay hidden">
+      <div class="loader-ring"></div>
+      <div class="loader-text">ANALYSE EN COURS...</div>
+    </div>
+
+    <!-- PROFILE CONTENT -->
+    <div class="profile-content" id="profile-content">
+
+      <!-- SUMMONER CARD -->
+      <section class="summoner-card" id="summoner-card">
+        <div class="summoner-avatar-wrap">
+          <img id="summoner-icon" src="" alt="icon" class="summoner-icon" />
+          <span class="summoner-level" id="summoner-level">—</span>
+        </div>
+        <div class="summoner-info">
+          <h2 class="summoner-name" id="summoner-name">—</h2>
+          <div class="summoner-tag" id="summoner-tag">#—</div>
+          <div class="summoner-region" id="summoner-region">—</div>
+        </div>
+        <div class="summoner-ranks" id="summoner-ranks">
+          <!-- Ranks dynamically injected -->
+        </div>
+      </section>
+
+      <!-- WINRATE SECTION -->
+      <section class="winrate-section">
+        <div class="section-header">
+          <span class="section-title">WINRATE PAR MODE</span>
+        </div>
+        <div class="winrate-cards" id="winrate-cards">
+          <!-- Injected dynamically -->
+        </div>
+      </section>
+
+      <!-- HISTORY SECTION -->
+      <section class="history-section">
+        <div class="section-header">
+          <span class="section-title">HISTORIQUE DES PARTIES</span>
+          <div class="history-filters" id="history-filters">
+            <button class="filter-btn active" data-queue="all">Tous</button>
+            <button class="filter-btn" data-queue="420">Solo/Duo</button>
+            <button class="filter-btn" data-queue="440">Flex</button>
+            <button class="filter-btn" data-queue="400">Draft</button>
+            <button class="filter-btn" data-queue="450">ARAM</button>
+          </div>
+        </div>
+        <div class="match-list" id="match-list">
+          <!-- Injected dynamically -->
+        </div>
+        <div class="load-more-wrap">
+          <button class="load-more-btn" id="load-more-btn">CHARGER PLUS</button>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- MATCH DETAIL MODAL -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal-panel" id="modal-panel">
+      <button class="modal-close" id="modal-close">✕</button>
+      <div class="modal-content" id="modal-content">
+        <!-- Injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
