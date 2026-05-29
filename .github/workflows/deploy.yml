@@ -44,4 +44,4 @@ jobs:
           echo "=== END CLOUDFLARE DEBUG ==="
 
           # 4. Sync the files to your Umbrel
-          rsync -avz --delete --exclude='.git/' ./ $CF_DOMAIN:$DEST_DIR
+          rsync -avz --delete --exclude='.git/' --exclude='node_modules/' ./ $CF_DOMAIN:$DEST_DIR
