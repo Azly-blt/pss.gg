@@ -22,8 +22,6 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           SERVER_USER: ${{ secrets.SERVER_USER }}
           CF_DOMAIN: ${{ secrets.CF_SSH_DOMAIN }}
-          CF_CLIENT_ID: ${{ secrets.CF_CLIENT_ID }}         
-          CF_CLIENT_SECRET: ${{ secrets.CF_CLIENT_SECRET }} 
           DEST_DIR: "/home/umbrel/umbrel/home/PLT/" 
         run: |
           # 1. Setup SSH Key safely
@@ -31,12 +29,12 @@ jobs:
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
 
-          # 2. Configure SSH to use Cloudflare Tunnel as a proxy WITH Service Tokens
+          # 2. Configure SSH to use Cloudflare Tunnel as a proxy (SANS tokens)
           cat <<EOF >> ~/.ssh/config
           Host $CF_DOMAIN
             User $SERVER_USER
             IdentityFile ~/.ssh/id_ed25519
-            ProxyCommand cloudflared access tcp --hostname %h --service-token-id $CF_CLIENT_ID --service-token-secret $CF_CLIENT_SECRET
+            ProxyCommand cloudflared access tcp --hostname %h
             StrictHostKeyChecking accept-new
           EOF
 
