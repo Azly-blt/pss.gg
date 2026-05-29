@@ -288,9 +288,9 @@ setInterval(autoUpdateAllPlayersLP, 300000);
 // ==========================================
 // 4. LANCEMENT DU SERVEUR
 // ==========================================
-app.listen(3000, '0.0.0.0', () => {
+app.listen(3001, '0.0.0.0', () => {
     console.log("==========================================");
     console.log("✅ SERVEUR NEXUS.GG DÉMARRÉ");
-    console.log("🚀 Port : 3000");
+    console.log("🚀 Port : 3001");
     console.log("==========================================");
 });
