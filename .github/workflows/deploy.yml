@@ -34,12 +34,14 @@ jobs:
           Host $CF_DOMAIN
             User $SERVER_USER
             IdentityFile ~/.ssh/id_ed25519
-            ProxyCommand cloudflared access ssh --hostname %h --loglevel debug
+            ProxyCommand cloudflared access ssh --hostname %h
             StrictHostKeyChecking accept-new
           EOF
 
-          # 3. Sync the files to your Umbrel
+          # 3. 🔍 DEBUG: Test the connection directly from GitHub
+          echo "=== START CLOUDFLARE DEBUG ==="
+          curl -i -H "Upgrade: websocket" -H "Connection: Upgrade" https://$CF_DOMAIN
+          echo "=== END CLOUDFLARE DEBUG ==="
+
+          # 4. Sync the files to your Umbrel
           rsync -avz --delete --exclude='.git/' ./ $CF_DOMAIN:$DEST_DIR
-          
-          # 4. Optional: Restart PM2 so changes take effect
-          ssh $CF_DOMAIN "pm2 restart all"
