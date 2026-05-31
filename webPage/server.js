@@ -4,7 +4,8 @@ const path = require('path');
 const sqlite3 = require('sqlite3').verbose(); 
 
 const app = express();
-const API_KEY = 'RGAPI-b09dd9fb-e52d-421f-9794-14def39d994e'; 
+const API_KEY = process.env.API_KEY;
+
 
 app.use(cors());
 app.use(express.json()); 
